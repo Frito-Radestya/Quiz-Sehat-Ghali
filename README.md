@@ -22,6 +22,7 @@ Satu aplikasi kuis untuk anak SD dengan **3 paket soal + mode acak**, input nama
 | 🏆 **Papan Juara** | Peringkat otomatis tersimpan di laptop (skor tertinggi di atas), lengkap dengan medali 🥇🥈🥉. |
 | 👥 **Ganti Pemain** | Setelah selesai, tekan "Selesai & Ganti Teman Berikutnya" agar anak selanjutnya bisa langsung mulai. |
 | 🖼️ **Tebak Gambar** | 3 ilustrasi SVG: pisang, pepaya, dan jagung. |
+| 📱 **Responsif** | Nyaman dipakai di HP Android (mulai layar 280 px), tablet, dan laptop, baik posisi tegak maupun mendatar. |
 
 ---
 
@@ -123,4 +124,5 @@ Lalu tambahkan soal itu ke dalam `ALL_QUESTIONS`.
 - **Efek suara dan musik punya tombol terpisah** di kanan atas. Tombol 🔊 mengatur efek suara, tombol 🎵 mengatur musik latar. Keduanya baru aktif setelah pengguna menekan tombol (aturan browser).
 - **Musik latar adalah lagu original** bergaya game lari-lari yang dibuat dengan kode, bukan lagu *Subway Surfers* asli, sehingga aman dari masalah hak cipta.
 - **Volume musik** bisa diatur di `js/music.js` pada bagian `MUSIC_VOLUME` (default `1.0`; turunkan ke `0.65` bila terlalu keras).
+- **Tampilan responsif** sudah diuji pada lebar layar 280, 320, 360, 390, 412, 480, 568 (lanskap), 600, 681, 740, 768, 820, 844 (lanskap), 901, 1024, dan 1280 px. Di HP, papan juara memakai tampilan ringkas: paket soal dan waktu tampil di bawah nama pemain.
 - **Urutan peringkat**: skor tertinggi di atas; jika skor sama, pemain yang lebih dulu menyelesaikan berada di atas.
