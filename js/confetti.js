@@ -13,15 +13,15 @@ const Confetti = (function() {
     if (!canvas) {
       canvas = document.createElement("canvas");
       canvas.id = "confetti-canvas";
-      canvas.style.position = "fixed";
-      canvas.style.top = "0";
-      canvas.style.left = "0";
-      canvas.style.width = "100%";
-      canvas.style.height = "100%";
-      canvas.style.pointerEvents = "none";
-      canvas.style.zIndex = "9999";
       document.body.appendChild(canvas);
     }
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.style.pointerEvents = "none";
+    canvas.style.zIndex = "9999";
     ctx = canvas.getContext("2d");
     resize();
     window.addEventListener("resize", resize);
