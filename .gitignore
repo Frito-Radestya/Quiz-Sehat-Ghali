@@ -1,0 +1,15 @@
+# Arsip proyek lama (hanya backup lokal, tidak diikutkan ke repo)
+sarapan-sehat-quiz_v1/
+sarapan-sehat-quiz-v2/
+kuis-sarapan-sehat-v3/
+
+# Editor & OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Arsip
+*.zip
+*.rar

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fffdf5">
+  <title>Kuis Sarapan Sehat - Petualangan Jagoan SD</title>
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <a href="#" class="brand" aria-label="Beranda Kuis">
+      <span class="brand-icon">🥑</span>
+      <span>KELAS SEHAT</span>
+    </a>
+    <div class="topbar-actions">
+      <button id="sound-toggle-btn" class="sound-btn" type="button" aria-label="Atur Efek Suara">
+        <span>🔊</span> Efek: AKTIF
+      </button>
+      <button id="music-toggle-btn" class="sound-btn" type="button" aria-label="Atur Musik Latar">
+        <span>🎵</span> Musik: AKTIF
+      </button>
+      <button id="header-leaderboard-btn" class="leaderboard-header-btn" type="button" aria-label="Lihat Peringkat">
+        <span class="lh-icon">🏆</span> <span class="lh-text">Papan Juara</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main>
+    <!-- SCREEN 1: BERANDA & INPUT NAMA PEMAIN -->
+    <section id="home-screen" class="screen">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow">PETUALANGAN KUIS SD</span>
+          <h1 class="hero-title">Sarapan Sehat,<br><span>Belajar Semangat,</span><br><em>Tubuh Kuat!</em></h1>
+          <p class="hero-desc">
+            Ayo buktikan kepintaranmu! Jawab kuis seru tentang gizi, tebak gambar rahasia, kumpulkan skor setinggi-tingginya, dan jadilah <strong>Juara #1</strong> di laptop ini! 🥇
+          </p>
+          <div class="hero-highlights">
+            <span class="highlight-pill">🍌 Menu Bergizi</span>
+            <span class="highlight-pill">💧 Air Putih</span>
+            <span class="highlight-pill">🧼 Cuci Tangan</span>
+            <span class="highlight-pill">⚡ Energi Belajar</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <span class="floating-badge badge-top">Yummy! 😋</span>
+          <img src="assets/sarapan.svg" alt="Piring sarapan sehat" class="hero-img">
+          <span class="floating-badge badge-bottom">Sehat itu Keren! ⭐</span>
+        </div>
+      </div>
+
+      <!-- KARTU SETUP PEMAIN (SATU LAPTOP BERGANTIAN) -->
+      <div class="setup-card">
+        <h2 class="setup-card-title">🎒 Masuk Sebagai Pemain</h2>
+        <p class="setup-card-subtitle">Ketik nama kamu sebelum mulai kuis agar skormu tercatat di papan peringkat juara!</p>
+
+        <div class="form-group">
+          <label for="player-name-input" class="form-label">Siapa Nama Kamu, Jagoan?</label>
+          <input 
+            type="text" 
+            id="player-name-input" 
+            class="input-name" 
+            placeholder="Contoh: Ghali, Salsa, Budi..." 
+            autocomplete="off"
+            maxlength="20"
+            autofocus
+          >
+          <small class="input-hint">Minimal 2 huruf ya. Ketik namamu dengan benar!</small>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Pilih Karakter Favoritmu:</label>
+          <div id="avatar-list" class="avatar-grid">
+            <!-- Diisi lewat JavaScript -->
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="packet-select" class="form-label">Pilih Paket Soal:</label>
+          <select id="packet-select" class="select-packet">
+            <option value="acak" selected>🎲 Mode Acak (5 Soal Baru Setiap Main - Rekomendasi!)</option>
+            <option value="paket1">🟢 Paket 1: Energi & Kebiasaan Pagi (5 Soal)</option>
+            <option value="paket2">🟡 Paket 2: Gizi & Kebersihan Diri (5 Soal)</option>
+            <option value="paket3">🔵 Paket 3: Menu & Pilihan Cerdas (5 Soal)</option>
+            <option value="maraton">🌟 Mode Maraton Juara (Semua 15 Soal Penuh)</option>
+          </select>
+        </div>
+
+        <button id="start-quiz-btn" class="btn-primary-big disabled" type="button" disabled>
+          <span>Ketik Namamu Dulu, Ya!</span> ✍️
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: LAYAR PERMAINAN KUIS -->
+    <section id="quiz-screen" class="screen quiz-screen hidden">
+      <div class="quiz-topbar">
+        <div id="quiz-player-badge" class="player-info-badge">
+          <span class="badge-icon">🦊</span> <strong>Pemain</strong>
+        </div>
+        <span id="quiz-packet-badge" class="packet-badge">Mode Acak</span>
+        <div class="live-score-pill">
+          ⭐ Skor: <strong id="quiz-live-score">0</strong>
+        </div>
+      </div>
+
+      <div class="progress-section">
+        <div class="progress-labels">
+          <span id="question-count">Soal 1 dari 5</span>
+          <span id="progress-percent">20%</span>
+        </div>
+        <div class="progress-track">
+          <div id="progress-bar" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <article class="question-card">
+        <div class="question-header">
+          <span id="question-tag" class="question-tag">SOAL 1</span>
+          <span id="question-mascot" class="mascot-icon">🦊</span>
+        </div>
+
+        <h2 id="question-text" class="question-title">Memuat pertanyaan...</h2>
+
+        <!-- Area Gambar Tebakan (jika ada) -->
+        <div id="question-image-area" class="question-image-area hidden"></div>
+
+        <!-- 4 Pilihan Jawaban -->
+        <div id="answers-container" class="answers-grid"></div>
+
+        <!-- Umpan Balik Jawaban Langsung -->
+        <div id="feedback-box" class="feedback-box hidden" role="status"></div>
+
+        <!-- Tombol Aksi Kuis -->
+        <div class="quiz-footer-actions">
+          <span id="hint-text" class="hint-text">Pilih satu jawaban yang paling tepat ya!</span>
+          <button id="next-question-btn" class="btn-next" type="button" disabled>
+            Berikutnya ➜
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <!-- SCREEN 3: LAYAR HASIL AKHIR -->
+    <section id="result-screen" class="screen hidden">
+      <div class="result-card">
+        <div class="result-badge-top">
+          <span id="result-avatar" class="result-avatar-circle">🦊</span>
+          <span id="result-player-name">Jagoan Sehat</span>
+        </div>
+
+        <h2 id="result-title" class="result-title">Hebat Sekali!</h2>
+        <p id="result-message" class="result-message">Selamat, kamu telah menyelesaikan kuis sarapan sehat dengan sangat baik.</p>
+
+        <div class="score-display-box">
+          <div class="score-display-label">Skor Akhir Kamu</div>
+          <div id="final-score" class="score-display-value">100</div>
+          <div class="score-display-max">dari <span id="final-max-score">100</span> poin</div>
+        </div>
+
+        <div id="result-stars" class="result-stars-row">⭐⭐⭐⭐⭐</div>
+
+        <!-- Info Peringkat di Laptop Ini -->
+        <div id="result-rank-notice"></div>
+
+        <div class="result-actions-grid">
+          <button id="view-leaderboard-btn" class="btn-secondary" type="button">
+            🏆 Lihat Papan Juara
+          </button>
+          <button id="play-again-btn" class="btn-secondary" type="button">
+            🔄 Main Lagi (Soal Baru)
+          </button>
+        </div>
+
+        <button id="next-player-btn" class="btn-new-player" type="button">
+          👤 Selesai &amp; Ganti Teman Berikutnya ➜
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL PAPAN PERINGKAT / LEADERBOARD -->
+  <div id="leaderboard-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="leaderboard-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="leaderboard-title" class="modal-title">
+          <span>🏆</span> Papan Juara Tertinggi
+        </h2>
+        <button id="close-leaderboard-btn" class="close-modal-btn" type="button" aria-label="Tutup Papan Peringkat">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div id="modal-leaderboard-content">
+          <!-- Tabel peringkat di-render lewat JavaScript -->
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="clear-leaderboard-btn" class="btn-danger-link" type="button">
+          🗑️ Hapus Riwayat (Guru/Pengawas)
+        </button>
+        <button onclick="document.getElementById('leaderboard-modal').classList.add('hidden')" class="btn-secondary" type="button">
+          Tutup ✕
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CANVAS UNTUK EFEK KONFETI -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- FOOTER -->
+  <footer>
+    🌱 Kebiasaan Sarapan Sehat Hari Ini, Tubuh Kuat dan Pintar Setiap Hari! ☀️
+  </footer>
+
+  <!-- SKRIP LOGIKA -->
+  <script src="js/questions.js?v=3"></script>
+  <script src="js/audio.js?v=3"></script>
+  <script src="js/music.js?v=3"></script>
+  <script src="js/confetti.js?v=3"></script>
+  <script src="js/leaderboard.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
+</body>
+</html>

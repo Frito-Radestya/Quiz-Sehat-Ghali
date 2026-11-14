@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240">
+  <ellipse cx="180" cy="210" rx="110" ry="13" fill="#cbb98d" opacity=".35"/>
+  <!-- Bunch of bananas / single banana with cute cartoon style -->
+  <!-- Back banana -->
+  <path d="M75 145 C90 70, 200 45, 275 85 C240 70, 160 80, 105 160 Z" fill="#ffd452" stroke="#e09d18" stroke-width="3"/>
+  <!-- Main front banana -->
+  <path d="M80 155 C100 65, 230 40, 290 95 C250 175, 130 195, 80 155 Z" fill="#ffe259" stroke="#e5a71a" stroke-width="4"/>
+  <!-- Stem -->
+  <path d="M285 92 C300 95, 308 90, 312 82 C305 78, 298 80, 288 84 Z" fill="#5c8a32" stroke="#3d631b" stroke-width="2"/>
+  <!-- Tip -->
+  <path d="M80 155 C74 158, 68 152, 70 146 C74 148, 78 151, 80 155 Z" fill="#755627"/>
+  <!-- Highlights and details -->
+  <path d="M110 115 C150 78, 220 70, 265 98" fill="none" stroke="#fff4a3" stroke-width="7" stroke-linecap="round" opacity=".9"/>
+  <path d="M120 155 C165 170, 220 150, 255 120" fill="none" stroke="#f0a500" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+  <!-- Cute face -->
+  <circle cx="175" cy="118" r="4" fill="#543714"/>
+  <circle cx="205" cy="116" r="4" fill="#543714"/>
+  <path d="M185 127 Q190 133 195 127" fill="none" stroke="#543714" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <circle cx="170" cy="123" r="3.5" fill="#ff7f7f" opacity=".6"/>
+  <circle cx="210" cy="121" r="3.5" fill="#ff7f7f" opacity=".6"/>
+  <!-- Sparkles -->
+  <path d="M50 85 l5 10 10 5 -10 5 -5 10 -5 -10 -10 -5 10 -5 z" fill="#ffd45f"/>
+  <path d="M295 160 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#f7941d"/>
+  <circle cx="310" cy="50" r="3" fill="#ffd45f"/>
+</svg>
