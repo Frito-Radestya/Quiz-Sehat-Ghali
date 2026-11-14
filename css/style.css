@@ -117,7 +117,7 @@ main {
   max-width: 980px;
   width: 100%;
   margin: 0 auto;
-  padding: 30px 20px 60px;
+  padding: 24px 20px 20px;
 }
 
 .screen {
@@ -1202,10 +1202,21 @@ main {
   box-shadow: 0 0 0 2.5px #6bca8f !important;
 }
 
+/* CANVAS EFEK KONFETI */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 24px 20px;
+  padding: 14px 20px;
   font-size: 13px;
   font-weight: 800;
   color: #8c9891;
@@ -1220,7 +1231,7 @@ footer {
 /* --- Laptop kecil / tablet lanskap --- */
 @media (max-width: 1024px) {
   main {
-    padding: 28px 22px 52px;
+    padding: 22px 20px 18px;
   }
 
   .topbar {
@@ -1249,7 +1260,7 @@ footer {
 @media (max-width: 900px) {
   main {
     max-width: 760px;
-    padding: 24px 20px 48px;
+    padding: 20px 18px 16px;
   }
 
   .hero-grid {
@@ -1538,7 +1549,7 @@ footer {
 /* --- HP biasa: skala tipografi, jarak, dan kontrol --- */
 @media (max-width: 480px) {
   main {
-    padding: 18px 14px 40px;
+    padding: 16px 14px 14px;
   }
 
   .topbar {
@@ -1905,13 +1916,17 @@ footer {
   }
 
   footer {
-    padding: 18px 14px;
+    padding: 10px 14px;
     font-size: 11px;
   }
 }
 
 /* --- HP sangat kecil (320–380 px) --- */
 @media (max-width: 380px) {
+  main {
+    padding: 14px 12px 10px;
+  }
+
   .topbar {
     flex-wrap: wrap;
     justify-content: center;
