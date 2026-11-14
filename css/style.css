@@ -423,7 +423,13 @@ main {
 }
 
 .player-info-badge .badge-icon {
+  flex-shrink: 0;
   font-size: 22px;
+}
+
+.player-info-badge strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .packet-badge {
@@ -521,20 +527,21 @@ main {
 
 /* GAMBAR TEBAKAN */
 .question-img-card {
-  background: #fffcf2;
+  max-width: 440px;
+  margin: 0 auto 24px;
+  padding: 18px;
   border: 2.5px dashed #f5cf7c;
   border-radius: 20px;
-  padding: 18px;
+  background: #fffcf2;
   text-align: center;
-  margin-bottom: 24px;
 }
 
 .question-svg-img {
-  max-width: 280px;
+  display: block;
   width: 100%;
+  max-width: 300px;
   height: auto;
   margin: 0 auto;
-  display: block;
 }
 
 .img-caption {
@@ -652,9 +659,11 @@ main {
 .feedback-header {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
   font-family: 'Fredoka', cursive, sans-serif;
   font-size: 18px;
+  line-height: 1.3;
   margin-bottom: 6px;
 }
 
@@ -729,6 +738,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  max-width: 100%;
   background: #fff4d5;
   border: 2px solid #f2d98c;
   padding: 8px 18px;
@@ -736,6 +746,7 @@ main {
   font-size: 15px;
   font-weight: 800;
   margin-bottom: 18px;
+  overflow-wrap: anywhere;
 }
 
 .result-avatar-circle {
@@ -805,6 +816,10 @@ main {
   max-width: 440px;
   margin: 0 auto 28px;
   text-align: left;
+}
+
+.rank-callout > div {
+  min-width: 0;
 }
 
 .callout-medal {
@@ -897,6 +912,7 @@ main {
   width: 100%;
   max-width: 760px;
   max-height: 88vh;
+  max-height: 88dvh;
   display: flex;
   flex-direction: column;
   box-shadow: 0 20px 50px rgba(0,0,0,0.25);
@@ -916,21 +932,28 @@ main {
 .modal-title {
   font-family: 'Fredoka', cursive, sans-serif;
   font-size: 24px;
+  line-height: 1.2;
   color: var(--ink);
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
+}
+
+.modal-title > span {
+  flex-shrink: 0;
 }
 
 .close-modal-btn {
-  background: #f5eedf;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
   border: none;
-  width: 38px;
-  height: 38px;
   border-radius: 50%;
+  background: #f5eedf;
+  color: #635742;
   font-size: 18px;
   font-weight: 800;
-  color: #635742;
   cursor: pointer;
   display: grid;
   place-items: center;
@@ -959,12 +982,18 @@ main {
 }
 
 .btn-danger-link {
-  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 6px;
   border: none;
+  background: transparent;
   color: #c44336;
   font-family: 'Nunito', sans-serif;
   font-size: 13px;
   font-weight: 800;
+  text-align: center;
   cursor: pointer;
   text-decoration: underline;
 }
@@ -1002,12 +1031,13 @@ main {
 
 .leaderboard-table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0 8px;
 }
 
 .leaderboard-table th {
-  padding: 10px 14px;
+  padding: 10px;
   text-align: left;
   font-size: 12px;
   font-weight: 900;
@@ -1024,7 +1054,7 @@ main {
 }
 
 .leaderboard-table tbody tr td {
-  padding: 14px 14px;
+  padding: 14px 10px;
 }
 
 .leaderboard-table tbody tr td:first-child {
@@ -1038,7 +1068,19 @@ main {
 }
 
 .col-rank {
-  width: 110px;
+  width: 112px;
+}
+
+.col-score {
+  width: 108px;
+}
+
+.col-packet {
+  width: 120px;
+}
+
+.col-time {
+  width: 112px;
 }
 
 .rank-badge {
@@ -1088,13 +1130,30 @@ main {
   font-size: 24px;
 }
 
+.player-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
 .player-name {
   font-weight: 900;
   font-size: 16px;
   color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.player-meta {
+  display: none;
+  font-size: 11px;
+  font-weight: 700;
+  color: #8b978f;
+  line-height: 1.35;
 }
 
 .you-badge {
+  align-self: flex-start;
   background: #fff4d5;
   color: #a46a00;
   font-size: 11px;
@@ -1109,6 +1168,7 @@ main {
   font-size: 20px;
   font-weight: 700;
   color: var(--green);
+  white-space: nowrap;
 }
 
 .score-pill-value small {
@@ -1118,13 +1178,16 @@ main {
 }
 
 .packet-tag {
-  font-size: 12px;
-  font-weight: 800;
-  color: #556c62;
-  background: #eef3f0;
+  display: inline-block;
+  max-width: 100%;
   padding: 5px 10px;
   border-radius: 12px;
-  white-space: nowrap;
+  background: #eef3f0;
+  color: #556c62;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.3;
+  white-space: normal;
 }
 
 .col-time {
@@ -1150,65 +1213,866 @@ footer {
   background: #ffffff;
 }
 
-/* RESPONSIVE */
+/* ============================================================
+   RESPONSIVE — Android phones, tablets, and small laptops
+   ============================================================ */
+
+/* --- Laptop kecil / tablet lanskap --- */
+@media (max-width: 1024px) {
+  main {
+    padding: 28px 22px 52px;
+  }
+
+  .topbar {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .hero-grid {
+    gap: 24px;
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 4.8vw, 50px);
+  }
+
+  .hero-desc {
+    font-size: 16px;
+  }
+
+  .question-card {
+    padding: clamp(22px, 3.6vw, 34px);
+  }
+}
+
+/* --- Tablet potret: hero ditumpuk agar tidak sempit --- */
+@media (max-width: 900px) {
+  main {
+    max-width: 760px;
+    padding: 24px 20px 48px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  .hero-visual {
+    order: -1;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 4px;
+  }
+
+  .hero-img {
+    max-width: min(100%, 330px);
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 7vw, 50px);
+  }
+
+  .hero-desc {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-highlights {
+    justify-content: center;
+    margin-bottom: 22px;
+  }
+
+  .avatar-grid {
+    justify-content: center;
+  }
+
+  .setup-card,
+  .quiz-topbar,
+  .progress-section,
+  .question-card,
+  .result-card {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .progress-section {
+    margin-bottom: 18px;
+  }
+
+  .result-card {
+    max-width: 620px;
+  }
+}
+
+/* --- Tablet kecil / HP: topbar ringkas, jawaban satu kolom --- */
+@media (max-width: 768px) {
+  .topbar {
+    min-height: 64px;
+    padding: 9px 16px;
+    gap: 12px;
+  }
+
+  .brand {
+    font-size: clamp(19px, 3.6vw, 23px);
+    gap: 8px;
+  }
+
+  .brand-icon {
+    font-size: 28px;
+  }
+
+  .topbar-actions {
+    gap: 8px;
+  }
+
+  .topbar-actions .sound-btn,
+  .topbar-actions .leaderboard-header-btn {
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 7px 11px;
+  }
+
+  .topbar-actions .sound-btn {
+    gap: 0;
+    font-size: 0;
+  }
+
+  .topbar-actions .sound-btn span {
+    font-size: 19px;
+  }
+
+  .topbar-actions .leaderboard-header-btn {
+    font-size: 19px;
+  }
+
+  .topbar-actions .leaderboard-header-btn .lh-text {
+    display: none;
+  }
+
+  .answers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-footer-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .btn-next {
+    width: 100%;
+  }
+
+  .question-title {
+    font-size: clamp(21px, 4.6vw, 27px);
+  }
+
+  .mascot-icon {
+    font-size: 30px;
+  }
+
+  .btn-primary-big {
+    font-size: clamp(18px, 4.8vw, 22px);
+  }
+
+  .col-packet,
+  .col-time {
+    display: none;
+  }
+
+  .player-meta {
+    display: block;
+  }
+
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .modal-content {
+    max-height: 90vh;
+    max-height: 90dvh;
+  }
+}
+
+/* --- HP: papan juara jadi kartu ringkas & tombol modal menumpuk --- */
+@media (max-width: 680px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .modal-content {
+    border-radius: 22px;
+    max-height: 92vh;
+    max-height: 92dvh;
+  }
+
+  .modal-header {
+    padding: 16px 18px;
+    gap: 10px;
+  }
+
+  .modal-title {
+    font-size: clamp(19px, 4.5vw, 23px);
+    gap: 7px;
+  }
+
+  .close-modal-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .modal-body {
+    padding: 12px 14px;
+  }
+
+  .modal-footer {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+  }
+
+  .col-packet,
+  .col-time {
+    display: none;
+  }
+
+  .leaderboard-table th {
+    padding: 8px 8px;
+    font-size: 10px;
+  }
+
+  .leaderboard-table th.col-rank {
+    font-size: 0;
+  }
+
+  .leaderboard-table th.col-rank::after {
+    content: "NO.";
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+
+  .leaderboard-table tbody tr td {
+    padding: 10px 8px;
+  }
+
+  .col-rank {
+    width: 52px;
+  }
+
+  .col-score {
+    width: 82px;
+  }
+
+  .rank-badge {
+    gap: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+
+  .rank-label {
+    display: none;
+  }
+
+  .rank-num {
+    padding-left: 4px;
+    font-size: 14px;
+  }
+
+  .player-avatar {
+    font-size: 21px;
+  }
+
+  .player-name {
+    font-size: 14px;
+  }
+
+  .player-meta {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 10px;
+    color: #8b978f;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .you-badge {
+    margin-top: 2px;
+    padding: 2px 6px;
+    font-size: 9px;
+  }
+
+  .score-pill-value {
+    font-size: 17px;
+  }
+
+  .score-pill-value small {
+    font-size: 10px;
+  }
+
+  .empty-leaderboard {
+    padding: 28px 14px;
+  }
+
+  .empty-icon {
+    font-size: 44px;
+  }
+
+  .empty-leaderboard h3 {
+    font-size: 19px;
+  }
+
+  .empty-leaderboard p {
+    font-size: 13px;
+  }
+}
+
+/* --- HP biasa: skala tipografi, jarak, dan kontrol --- */
+@media (max-width: 480px) {
+  main {
+    padding: 18px 14px 40px;
+  }
+
+  .topbar {
+    padding: 9px 12px;
+  }
+
+  .brand {
+    font-size: 19px;
+  }
+
+  .brand-icon {
+    font-size: 26px;
+  }
+
+  .topbar-actions {
+    gap: 6px;
+  }
+
+  .topbar-actions .sound-btn,
+  .topbar-actions .leaderboard-header-btn {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 6px 9px;
+  }
+
+  .topbar-actions .sound-btn span,
+  .topbar-actions .leaderboard-header-btn {
+    font-size: 17px;
+  }
+
+  .hero-grid {
+    gap: 12px;
+  }
+
+  .hero-visual {
+    max-width: 300px;
+    margin-bottom: 2px;
+  }
+
+  .hero-title {
+    font-size: clamp(31px, 9.4vw, 38px);
+    line-height: 1.12;
+  }
+
+  .hero-desc {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .eyebrow {
+    padding: 5px 10px;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .highlight-pill {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .floating-badge {
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+
+  .setup-card {
+    padding: 20px 16px;
+    border-radius: 22px;
+  }
+
+  .setup-card-title {
+    font-size: clamp(19px, 5.6vw, 23px);
+  }
+
+  .setup-card-subtitle {
+    margin-bottom: 18px;
+    font-size: 13px;
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+  }
+
+  .form-label {
+    font-size: 12px;
+  }
+
+  .input-name,
+  .select-packet {
+    padding: 13px 14px;
+    border-width: 2.5px;
+    font-size: 16px;
+  }
+
+  .input-hint {
+    font-size: 11px;
+  }
+
+  .avatar-grid {
+    gap: 8px;
+  }
+
+  .avatar-choice {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    font-size: 23px;
+  }
+
+  .btn-primary-big {
+    gap: 8px;
+    padding: 15px 14px;
+    border-radius: 16px;
+    font-size: clamp(17px, 4.8vw, 20px);
+  }
+
+  .quiz-topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+  }
+
+  .player-info-badge {
+    grid-column: 1 / -1;
+    justify-self: start;
+    max-width: 100%;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .player-info-badge .badge-icon {
+    font-size: 19px;
+  }
+
+  .packet-badge {
+    justify-self: start;
+    padding: 6px 10px;
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .live-score-pill {
+    justify-self: end;
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+
+  .progress-labels {
+    font-size: 12px;
+  }
+
+  .progress-track {
+    height: 11px;
+  }
+
+  .question-card {
+    padding: 18px 15px;
+    border-radius: 22px;
+  }
+
+  .question-header {
+    margin-bottom: 10px;
+  }
+
+  .question-tag {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+
+  .mascot-icon {
+    font-size: 26px;
+  }
+
+  .question-title {
+    margin-bottom: 16px;
+    font-size: clamp(19px, 5.4vw, 24px);
+  }
+
+  .question-img-card {
+    padding: 10px;
+    margin-bottom: 18px;
+  }
+
+  .question-svg-img {
+    max-width: 220px;
+  }
+
+  .answers-grid {
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .answer-button {
+    gap: 10px;
+    min-height: 60px;
+    padding: 12px;
+    border-width: 2.5px;
+    border-radius: 14px;
+    font-size: 14px;
+    box-shadow: 0 3px 0 #ded5be;
+  }
+
+  .answer-letter {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    font-size: 16px;
+  }
+
+  .feedback-box {
+    margin-bottom: 16px;
+    padding: 13px 14px;
+    border-radius: 14px;
+  }
+
+  .feedback-header {
+    gap: 7px;
+    font-size: 15px;
+  }
+
+  .feedback-icon {
+    font-size: 21px;
+  }
+
+  .feedback-desc {
+    font-size: 13px;
+  }
+
+  .hint-text {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .btn-next {
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+
+  .result-card {
+    padding: 26px 16px;
+    border-radius: 24px;
+  }
+
+  .result-badge-top {
+    gap: 6px;
+    max-width: 100%;
+    padding: 6px 13px;
+    font-size: 13px;
+  }
+
+  .result-avatar-circle {
+    font-size: 25px;
+  }
+
+  .result-title {
+    font-size: clamp(24px, 7vw, 32px);
+  }
+
+  .result-message {
+    margin-bottom: 18px;
+    font-size: 14px;
+  }
+
+  .score-display-box {
+    max-width: 220px;
+    padding: 15px;
+    border-width: 2.5px;
+    border-radius: 18px;
+  }
+
+  .score-display-label {
+    font-size: 11px;
+  }
+
+  .score-display-value {
+    font-size: clamp(48px, 16vw, 62px);
+  }
+
+  .score-display-max {
+    font-size: 13px;
+  }
+
+  .result-stars-row {
+    margin-bottom: 18px;
+    font-size: 26px;
+    letter-spacing: 2px;
+  }
+
+  .rank-callout {
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 12px 14px;
+    border-radius: 16px;
+  }
+
+  .callout-medal {
+    font-size: 30px;
+  }
+
+  .rank-callout strong {
+    font-size: 15px;
+  }
+
+  .rank-callout p {
+    font-size: 11px;
+  }
+
+  .btn-secondary {
+    padding: 12px 14px;
+    border-radius: 14px;
+    font-size: 15px;
+  }
+
+  .btn-new-player {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .modal-overlay {
+    padding: 8px;
+  }
+
+  .modal-content {
+    max-height: 94vh;
+    max-height: 94dvh;
+    border-width: 2px;
+    border-radius: 18px;
+  }
+
+  .modal-header {
+    padding: 13px 14px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+
+  .close-modal-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .modal-body {
+    padding: 8px;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .modal-footer .btn-secondary {
+    width: 100%;
+  }
+
+  .btn-danger-link {
+    padding: 4px;
+    text-align: center;
+    font-size: 11px;
+  }
+
+  footer {
+    padding: 18px 14px;
+    font-size: 11px;
+  }
+}
+
+/* --- HP sangat kecil (320–380 px) --- */
 @media (max-width: 380px) {
   .topbar {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
+    gap: 7px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
+
+  .brand {
+    font-size: 19px;
+  }
+
+  .brand-icon {
+    font-size: 25px;
+  }
+
   .topbar-actions {
     width: 100%;
     justify-content: center;
   }
-  .brand {
-    font-size: 20px;
+
+  .hero-title {
+    font-size: 30px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+  }
+
+  .hero-desc {
+    font-size: 13.5px;
+  }
+
+  .floating-badge {
+    font-size: 11px;
+  }
+
+  .setup-card {
+    padding: 18px 13px;
+  }
+
+  .avatar-choice {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+
+  .btn-primary-big {
+    padding: 14px 10px;
+    font-size: 16px;
+  }
+
+  .packet-badge {
+    font-size: 10px;
+  }
+
+  .question-card {
+    padding: 16px 12px;
+  }
+
+  .answer-button {
+    padding: 11px 10px;
+    font-size: 13px;
+  }
+
+  .answer-letter {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .leaderboard-table th {
+    font-size: 9px;
+  }
+
+  .col-rank {
+    width: 42px;
+  }
+
+  .col-score {
+    width: 54px;
+  }
+
+  .score-pill-value small {
+    display: none;
+  }
+
+  .rank-badge {
+    padding: 4px 6px;
+  }
+
+  .player-avatar {
+    font-size: 19px;
+  }
+
+  .player-name {
+    font-size: 13px;
+  }
+
+  .score-pill-value {
+    font-size: 15px;
   }
 }
 
-@media (max-width: 768px) {
-  .hero-visual {
-    order: -1;
-    max-width: 320px;
-    margin: 0 auto 10px;
+/* --- Layar pendek (HP lanskap) --- */
+@media (max-height: 520px) {
+  .modal-overlay {
+    padding: 6px;
   }
-  .hero-highlights {
-    justify-content: center;
+
+  .modal-content {
+    max-height: calc(100vh - 12px);
+    max-height: calc(100dvh - 12px);
   }
+
+  .modal-header {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .modal-body {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .modal-footer {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .leaderboard-table {
+    border-spacing: 0 5px;
+  }
+
+  .leaderboard-table th {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .leaderboard-table tbody tr td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+/* Di HP lanskap, jawaban dua kolom agar tidak terlalu panjang ke bawah. */
+@media (max-height: 500px) and (min-width: 520px) {
   .answers-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
-  .result-actions-grid {
-    grid-template-columns: 1fr;
+
+  .answer-button {
+    min-height: 60px;
   }
-  .quiz-footer-actions {
-    flex-direction: column-reverse;
-    align-items: stretch;
-  }
-  .btn-next {
-    width: 100%;
-  }
-  .topbar {
-    padding: 10px 14px;
-  }
-  .topbar-actions {
-    gap: 7px;
-  }
-  .topbar-actions .sound-btn,
-  .topbar-actions .leaderboard-header-btn {
-    font-size: 13px;
-    padding: 7px 11px;
-  }
-  .topbar-actions .sound-btn {
-    font-size: 0;
-  }
-  .topbar-actions .sound-btn span {
-    font-size: 18px;
-  }
-  .topbar-actions .leaderboard-header-btn .lh-text {
-    display: none;
-  }
-  .topbar-actions .leaderboard-header-btn {
-    font-size: 18px;
+
+  .question-title {
+    margin-bottom: 14px;
   }
 }

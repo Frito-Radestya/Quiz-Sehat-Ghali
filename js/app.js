@@ -250,7 +250,7 @@
       `;
     }
 
-    hintTextEl.textContent = "Jawaban terkunci! Tekan tombol di samping untuk lanjut.";
+    hintTextEl.textContent = "Jawaban terkunci! Tekan tombol berikutnya untuk lanjut.";
     nextQuestionBtn.disabled = false;
   }
 
@@ -328,6 +328,19 @@
     Sound.playClick();
     Leaderboard.renderTable(modalLeaderboardTable, highlightId || lastSavedEntryId);
     leaderboardModal.classList.remove("hidden");
+
+    const modalBody = leaderboardModal.querySelector(".modal-body");
+    modalBody.scrollTop = 0;
+
+    // Di layar kecil, gulir ke baris pemain yang baru selesai agar langsung terlihat.
+    if (highlightId) {
+      requestAnimationFrame(() => {
+        const highlightRow = modalLeaderboardTable.querySelector(".row-highlight");
+        if (highlightRow) {
+          highlightRow.scrollIntoView({ block: "center", behavior: "smooth" });
+        }
+      });
+    }
   }
 
   function closeLeaderboardModal() {
