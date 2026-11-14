@@ -1,6 +1,6 @@
 # 🥑 Kuis Sarapan Sehat — Petualangan Jagoan SD
 
-Satu aplikasi kuis untuk anak SD dengan **3 paket soal + mode acak**, input nama pemain, efek suara ceria, musik latar, konfeti, dan **papan peringkat** untuk satu laptop yang dipakai bergantian.
+Satu aplikasi kuis untuk anak SD dengan **Bank 60 Soal (Mode Acak untuk 20+ anak bergantian)**, 3 paket tematik, mode maraton 20 soal, input nama pemain, efek suara ceria, musik latar, konfeti, dan **papan peringkat** untuk satu laptop yang dipakai bergantian.
 
 > Folder `sarapan-sehat-quiz_v1`, `sarapan-sehat-quiz-v2`, dan `kuis-sarapan-sehat-v3` tetap disimpan sebagai arsip di komputer dan tidak diikutkan ke repo ini. Aplikasi baru yang dipakai adalah file di folder utama ini.
 
@@ -10,11 +10,11 @@ Satu aplikasi kuis untuk anak SD dengan **3 paket soal + mode acak**, input nama
 
 | Fitur | Keterangan |
 |---|---|
-| 🎲 **Mode Acak** | 5 soal dipilih acak dari total 15 soal, jadi setiap anak bisa dapat soal berbeda. |
-| 🟢 **Paket 1 – Energi Pagi** | Sarapan, menu seimbang, tebak buah pisang, air putih, bekal sehat. |
-| 🟡 **Paket 2 – Gizi & Kebersihan** | Waktu sarapan, protein telur, tebak pepaya, cuci tangan, sayur & buah. |
-| 🔵 **Paket 3 – Pilihan Cerdas** | Karbohidrat, tebak jagung, tempe, cara makan aman, cek kedaluwarsa susu. |
-| 🌟 **Mode Maraton** | Semua 15 soal sekaligus untuk tantangan juara. |
+| 🎲 **Mode Acak** | 5 soal dipilih acak otomatis dari total **60 bank soal**, sehingga 20+ anak yang bermain bergantian di satu laptop mendapat variasi soal berbeda dan tidak mudah berulang. |
+| 🟢 **Paket 1 – Energi Pagi** | Sarapan, menu seimbang, tebak buah pisang, air putih, bekal sehat (5 soal tematik). |
+| 🟡 **Paket 2 – Gizi & Kebersihan** | Waktu sarapan, protein telur, tebak pepaya, cuci tangan, sayur & buah (5 soal tematik). |
+| 🔵 **Paket 3 – Pilihan Cerdas** | Karbohidrat, tebak jagung, tempe, cara makan aman, cek kedaluwarsa susu (5 soal tematik). |
+| 🌟 **Mode Maraton Juara** | 20 soal tantangan pilihan sekaligus untuk menguji pemahaman menyeluruh. |
 | 👤 **Input Nama + Avatar** | Setiap anak memasukkan nama dan memilih karakter sebelum bermain. |
 | 🔊 **Efek Suara Ceria** | Nada benar/salah, lonceng, fanfare hasil akhir, dan suara klik. Tanpa suara orang berbicara. |
 | 🎵 **Musik Latar** | Soundtrack game ceria (original) otomatis berjalan saat kuis dimulai dan berhenti di layar hasil. Bisa dimatikan sendiri. |
